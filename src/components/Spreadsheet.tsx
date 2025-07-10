@@ -66,35 +66,36 @@ export default function Spreadsheet() {
 
   return (
     <div className="p-4">
-<div className="flex justify-between items-center mb-4 w-full">
-  {/* LEFT: Toolbar and buttons TIGHTLY INLINE */}
-  <div className="flex items-center gap-0">
-    <span className="text-sm font-medium text-gray-700 mr-1">Toolbar</span>
 
-    <div className="flex gap-1">
-      <button className="px-2 py-1 text-sm border rounded text-gray-700 hover:bg-gray-100">
-        Hide Fields
-      </button>
-      <button className="px-2 py-1 text-sm border rounded text-gray-700 hover:bg-gray-100">
-        Sort
-      </button>
-      <button className="px-2 py-1 text-sm border rounded text-gray-700 hover:bg-gray-100">
-        Filter
-      </button>
-      <button className="px-2 py-1 text-sm border rounded text-gray-700 hover:bg-gray-100">
-        Cell view
-      </button>
-    </div>
-  </div>
+      {/* Top Toolbar Row */}
+      <div className="flex justify-between items-center mb-4">
+        {/* Left toolbar buttons */}
+        <div className="flex items-center space-x-3">
+          <span className="font-semibold text-sm text-gray-700">Toolbar</span>
+          {["Hide Fields", "Sort", "Filter", "Cell view"].map((btn) => (
+            <button
+              key={btn}
+              className="text-sm px-3 py-1 rounded hover:bg-gray-100 border text-gray-600"
+              onClick={() => console.log(`${btn} clicked`)}
+            >
+              {btn}
+            </button>
+          ))}
+        </div>
 
-  {/* RIGHT: Import, Export, etc */}
-  <div className="flex gap-2">
-    <button className="px-3 py-1 text-sm border rounded text-gray-700 hover:bg-gray-100">Import</button>
-    <button className="px-3 py-1 text-sm border rounded text-gray-700 hover:bg-gray-100">Export</button>
-    <button className="px-3 py-1 text-sm border rounded text-gray-700 hover:bg-gray-100">Share</button>
-    <button className="px-3 py-1 text-sm border rounded text-gray-700 hover:bg-gray-100">New Action</button>
-  </div>
-</div>
+        {/* Right action buttons */}
+        <div className="flex space-x-3">
+          {["Import", "Export", "Share", "New Action"].map((btn) => (
+            <button
+              key={btn}
+              className="text-sm px-4 py-2 border rounded hover:bg-gray-100"
+              onClick={() => console.log(`${btn} clicked`)}
+            >
+              {btn}
+            </button>
+          ))}
+        </div>
+      </div>
 
       {/* Table */}
       <div className="overflow-x-auto border rounded">

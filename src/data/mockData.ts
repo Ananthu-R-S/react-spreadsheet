@@ -67,4 +67,3 @@ export const sampleData: RowData[] = [
     value: "2,800,000",
   },
 ];
-
